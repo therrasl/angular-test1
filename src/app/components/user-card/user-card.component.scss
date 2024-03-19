@@ -1,0 +1,21 @@
+.userCard{
+    width: 30vh;
+    border: 1px solid grey ;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+ 
+    align-items: center;
+    display: flex;
+
+}
+.userInfo{
+    flex-direction: row;
+    display: flex;
+   gap: 5px;
+}
+.btn{
+    padding: 7px 20px;
+    border-radius: 30px;
+    margin-bottom: 5px;
+}
