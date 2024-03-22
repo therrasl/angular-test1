@@ -1,0 +1,25 @@
+.container {
+  align-items: center;
+  max-width: 1000px;
+  margin-left: 400px;
+  margin: 0;
+  padding: 0;
+}
+
+.userList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+.modal-button {
+  background-color: red;
+  color: white;
+  position: fixed;
+  right: 15px;
+  bottom: 5px;
+  padding: 25px;
+  border-radius: 30px;
+  font-size: 20px;
+}

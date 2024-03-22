@@ -1,0 +1,30 @@
+<form class="form" [formGroup]="form" (ngSumbit)="(onCreate)">
+  <input
+    type="text"
+    placeholder='name'
+    class="form-input"
+    formControlName="name"
+  />
+  <p class="form-error" *ngIf="name.errors?.minlength && name.touched">
+    Please fill name width min length. Now {{ name.value.length }}
+  </p>
+  <input
+    type="text"
+    placeholder="username"
+    class="form-input"
+    formControlName="username"
+  />
+  <p class="form-error" *ngIf="username.errors?.minlength && username.touched">
+    Please fill username width min length. Now {{ username.value.length }}
+  </p>
+  <input
+    type="text"
+    placeholder="email"
+    class="form-input"
+    formControlName="email"
+  />
+  <p class="form-error" *ngIf="email.errors?.minlength && email.touched">
+    Please fill email width min length. Now {{ email.value.length }}
+  </p>
+  <button (click)="(onCreate)">click</button>
+</form>
