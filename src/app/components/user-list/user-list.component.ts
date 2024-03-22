@@ -5,19 +5,20 @@ import { Observable, map } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { loadUsers } from '../../store/users/users.actions';
 import { ModalService } from '../../service/modal.service';
-import { selectUsers, userSelector} from '../../store/users/users.selector';
+import { selectUsers} from '../../store/users/users.selector';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
-  constructor(public modalService: ModalService, private store:Store) {}
-  user$: Observable<IUsers[]>;
-
+  constructor(public modalService: ModalService, private store: Store) {}
+  
+ 
+  user$: Observable<IUsers[]>= this.store.select(selectUsers)
+   
   ngOnInit(): void {
-    this.user$ = this.store.select(selectUsers).pipe(
-      map((users) => [users])
-    );
-  }
+    this.store.dispatch(loadUsers())
+  this.user$ = this.store.select(selectUsers)
+  
 }

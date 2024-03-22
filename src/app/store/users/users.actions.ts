@@ -9,7 +9,7 @@ export const deleteAction = createAction('[Users/delete] delete ');
 
 export const loadUsersSuccess = createAction(
     '[Users] Get Users Success',
-    props<{ user : IUsers[] }>()
+    props<{ user : IUsers[]}>()
   );
   
   export const loadUsersFailure = createAction(

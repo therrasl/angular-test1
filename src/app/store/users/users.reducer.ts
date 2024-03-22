@@ -8,7 +8,7 @@ import {
 
 export const initialState: IState = {
   users: [],
-  status: false,
+
 };
 export const usersReducer = createReducer(
   initialState,
