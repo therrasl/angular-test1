@@ -22,3 +22,4 @@ export class UserListComponent implements OnInit {
   this.user$ = this.store.select(selectUsers)
   
 }
+}
