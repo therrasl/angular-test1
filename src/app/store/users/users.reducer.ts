@@ -12,7 +12,6 @@ export const initialState: IState = {
 };
 export const usersReducer = createReducer(
   initialState,
-  on(deleteAction, (state) => ({ ...state })),
   on( loadUsersSuccess, (state, { user }) => ({
     ...state,
     user,
