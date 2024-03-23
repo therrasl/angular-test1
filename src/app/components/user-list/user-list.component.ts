@@ -15,10 +15,10 @@ export class UserListComponent implements OnInit {
   constructor(public modalService: ModalService, private store: Store) {}
   
  
-  user$: Observable<IUsers[]>= this.store.select(selectUsers)
+  user$: Observable<IUsers[]>
    
   ngOnInit(): void {
-    this.store.dispatch(loadUsers())
+  this.store.dispatch(loadUsers())
   this.user$ = this.store.select(selectUsers)
   
 }
