@@ -16,7 +16,7 @@ import { usersReducer } from './store/users/users.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { isDevMode } from '@angular/core';
-import { ModalComponent } from './components/modal/modal.component';
+import { ModalComponent } from './components/create-edit-user/modal.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { userEffects } from './store/users/users.effects';
 
@@ -48,4 +48,6 @@ import { userEffects } from './store/users/users.effects';
   providers: [provideClientHydration(), HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}

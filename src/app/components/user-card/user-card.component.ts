@@ -1,7 +1,7 @@
 import { Component, Output } from '@angular/core';
-import { Input } from '@angular/core';
+import { Input , EventEmitter } from '@angular/core';
 import { IUsers } from '../../models/IUser';
-import EventEmitter from 'events';
+
 
 @Component({
   selector: 'app-user-card',
@@ -9,8 +9,12 @@ import EventEmitter from 'events';
   styleUrl: './user-card.component.scss',
 })
 export class UserCardComponent {
-  @Input() user: IUsers;
+  @Input() user: IUsers; 
 
   @Output()
-  userId = new EventEmitter();
+  id = new EventEmitter<number>();
+
+  onDelete(id : number){
+    this.id.emit(this.user.id)
+  }
 }
