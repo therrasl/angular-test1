@@ -6,6 +6,6 @@
       <p><strong>id</strong>:{{ user.id }}</p>
     </span>
     <p>{{ user.email }}</p>
-    <button class="btn">DELETE</button>
+    <button class="btn" (click)="onDelete(user.id)">DELETE</button>
   </div>
 </form>

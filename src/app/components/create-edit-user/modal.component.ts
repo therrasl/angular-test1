@@ -7,7 +7,7 @@ import { ModalService } from '../../service/modal.service';
 })
 export class ModalComponent {
   @Input() title : string 
- 
- constructor(public modalService : ModalService ){}
-}
- 
+  
+  constructor(public modalService : ModalService ){}
+} 
+  
