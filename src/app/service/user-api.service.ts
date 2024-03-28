@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { APP_ID, Injectable } from '@angular/core';
 import { Observable ,map } from 'rxjs';
 import { IUsers } from '../models/IUser';
-import { State, Store } from '@ngrx/store';
-import { IState } from '../models/IState';
+
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +16,12 @@ export class UserApiServiceService {
     );
   
     }
-    deleteUser(  id : number){
-    return this.http.delete(this.api+`/${id}`)
+    deleteUser(  id : number)  {
+    return this.http.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+    
     }
     
+    createUser(user : IUsers ){
+    return this.http.post(this.api , user)
+    }
 }

@@ -1,0 +1,27 @@
+<div [formGroup]="myForm">
+    <mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </mat-dialog-content>
+  
+    <mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+    </mat-dialog-content>
+  
+    <mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button (click)="onNoClick()">Отменить</button>
+        <button mat-raised-button [mat-dialog-close]="myForm.value">Create User</button>
+      </mat-dialog-actions>
+    
+  </div>

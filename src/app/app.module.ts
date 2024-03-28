@@ -3,7 +3,7 @@ import {
   BrowserModule,
   provideClientHydration,
 } from '@angular/platform-browser';
-
+import { MatDialog } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -16,17 +16,25 @@ import { usersReducer } from './store/users/users.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { isDevMode } from '@angular/core';
-import { ModalComponent } from './components/create-edit-user/modal.component';
-import { CreateUserComponent } from './components/create-user/create-user.component';
 import { userEffects } from './store/users/users.effects';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { CreateEditUserComponent } from './modal/create-edit-user/create-edit-user.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {MatListModule} from "@angular/material/list";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserCardComponent,
-    ModalComponent,
-    CreateUserComponent,
+     CreateEditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +52,18 @@ import { userEffects } from './store/users/users.effects';
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
       connectInZone: true, // If set to true, the connection is established within the Angular zone
     }),
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    ReactiveFormsModule,
   ],
-  providers: [provideClientHydration(), HttpClient],
+  providers: [provideClientHydration(), HttpClient, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-
-}
+export class AppModule {}

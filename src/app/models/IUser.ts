@@ -3,7 +3,7 @@ export interface IUsers {
   name: string;
   username: string;
   email: string;
-  address: {
+  address?: {
     street: string;
     suite: string;
     city: string;
