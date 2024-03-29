@@ -19,10 +19,10 @@ export class UserCardComponent {
   @Output()
   id = new EventEmitter<number>();
 
-  onDeleteUser(id : number){
+  onDeleteUser(){
     this.id.emit(this.user.id)
   }
-  public  isEdit :boolean =true
+  isEdit :boolean =true
   onEditUser() : void{
   const  dialogEdit=this.dialogRef.open(CreateEditUserComponent, {data :{ isEdit : this.isEdit , userData : this.user}})
   dialogEdit.afterClosed().pipe(
