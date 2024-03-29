@@ -1,49 +1,33 @@
-import {Component, Inject} from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators} from "@angular/forms";
-import {
-  MAT_DIALOG_DATA,
-  MatDialogActions, MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  } from "@angular/material/dialog";
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
+import { Component, Inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { IUsers } from '../../models/IUser';
 
 @Component({
   selector: 'app-create-edit-user',
   templateUrl: './create-edit-user.component.html',
-  styleUrl: './create-edit-user.component.scss'
+  styleUrl: './create-edit-user.component.scss',
 })
 export class CreateEditUserComponent {
-
   constructor(
-    public dialogRef: MatDialogRef<CreateEditUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {isEdit: boolean | undefined, dataUser:any},
+    private readonly dialogRef: MatDialogRef<CreateEditUserComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { isEdit: boolean; userData: IUsers }
   ) {}
 
   ngOnInit(): void {
-    if(this.data.isEdit){
-      this.pathValueForm();
+    if (this.data.isEdit) {
+      this.userForm.patchValue(this.data.userData);
     }
   }
-  onNoClick(): void {
+
+  closeDialogRef(): void {
     this.dialogRef.close();
   }
 
-  myForm = new FormGroup({
-    id: new FormControl( new Date().getTime(), Validators.required),
-    name: new FormControl( '' , Validators.required),
-    username: new FormControl( '', Validators.required),
+  userForm = new FormGroup({
+    id: new FormControl(new Date().getTime(), Validators.required),
+    name: new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-  })
-
-  pathValueForm(){
-    this.myForm.patchValue(this.data.dataUser)
-  }
+  });
 }

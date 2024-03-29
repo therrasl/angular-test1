@@ -1,4 +1,5 @@
-export interface IState {
-  users: [];
+import { IUsers } from "./IUser";
 
+export interface IState {
+  users: IUsers[];
 }

@@ -19,22 +19,22 @@ import { isDevMode } from '@angular/core';
 import { userEffects } from './store/users/users.effects';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CreateEditUserComponent } from './modal/create-edit-user/create-edit-user.component';
-import {MatButtonModule} from "@angular/material/button";
-import {MatCardModule} from "@angular/material/card";
-import {MatIconModule} from "@angular/material/icon";
-import {MatInputModule} from "@angular/material/input";
-import {MatListModule} from "@angular/material/list";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatDialogModule} from "@angular/material/dialog";
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserCardComponent,
-     CreateEditUserComponent,
+    CreateEditUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,9 +12,10 @@ import {
   AddUser,
   AddUserSucsess,
   AddUserFailure,
+  EditUser,
+  EditUserSuccess,
+  EditUserFailure,
 } from './users.actions';
-import { UserListComponent } from '../../components/user-list/user-list.component';
-
 
 @Injectable()
 export class userEffects {
@@ -23,27 +24,27 @@ export class userEffects {
     private userApi: UserApiServiceService
   ) {}
 
-  getUser$ = createEffect(() =>
+  getUserEffect$ = createEffect(() =>
     this.action$.pipe(
       ofType(loadUsers),
       tap(() => console.log('loading')),
       switchMap(() =>
         this.userApi.getUsers().pipe(
           tap(() => console.log('loadingSuccses')),
-          map((users) => loadUsersSuccess({ user : users})),
+          map((users) => loadUsersSuccess({ user: users })),
           catchError((error) => of(loadUsersFailure({ error })))
         )
       )
     )
   );
 
-  deleteUser$ = createEffect(() =>
+  deleteUserEffect$ = createEffect(() =>
     this.action$.pipe(
       ofType(deleteUser),
       tap(() => console.log('delete')),
       switchMap(({ id }) =>
         this.userApi.deleteUser(id).pipe(
-          tap(() => console.log({ id })),
+          tap(() => console.log('delete user', { id })),
           map(() => DeleteUserSuccsess({ id })),
           tap(() => console.log('deleteSuccses ')),
           catchError((error) => of(DeleteUserFailure({ error })))
@@ -52,16 +53,27 @@ export class userEffects {
     )
   );
 
-  addUser$ = createEffect(() =>
+  addUserEffect$ = createEffect(() =>
     this.action$.pipe(
       ofType(AddUser),
       tap(() => console.log('delete')),
       switchMap(({ user }) =>
         this.userApi.createUser(user).pipe(
-          tap(() => console.log({user})),
-          map(() => AddUserSucsess({user})),
+          tap(() => console.log({ user })),
+          map(() => AddUserSucsess({ user })),
           tap(() => console.log('add Succses ')),
           catchError((error) => of(AddUserFailure({ error })))
+        )
+      )
+    )
+  );
+  editUserEffect$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(EditUser),
+      switchMap(({ editUser }) =>
+        this.userApi.editUser(editUser).pipe(
+          map(() => EditUserSuccess({ editUser })),
+          catchError((error) => of(loadUsersFailure({ error })))
         )
       )
     )

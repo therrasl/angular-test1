@@ -1,11 +1,12 @@
 <form>
-  <div class="userCard">
+    <div class="userCard">
     <h3>{{ user.name}}</h3>
     <span class="userInfo">
       <p>{{ user.username }}</p>
       <p><strong>id</strong>:{{ user.id }}</p>
     </span>
     <p>{{ user.email }}</p>
-    <button class="btn" (click)="onDelete(user.id)">DELETE</button>
+    <button class="userButton" (click)="onDeleteUser(user.id)">DELETE</button>
+    <button class="userButton" (click)="onEditUser()">Edit user</button>
   </div>
 </form>
